@@ -1,4 +1,4 @@
-import { FindOneOptions } from 'typeorm';
+import { FindOneOptions, FindOptionsWhere } from 'typeorm';
 import { User, UserRepository } from './entities/user.entity';
 
 class AuthServiceClass {
@@ -6,6 +6,10 @@ class AuthServiceClass {
 
   async findUser(options: FindOneOptions<User>) {
     return await UserRepository.findOne(options);
+  }
+
+  async findUserWhere(options: FindOptionsWhere<User>) {
+    return await UserRepository.findOneBy(options);
   }
 }
 

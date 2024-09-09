@@ -3,14 +3,14 @@ import passport from 'passport';
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt';
 import { Strategy as LocalStrategy } from 'passport-local';
 import configuration from '../configs/configuration';
-import { UserRepository } from './entities/user.entity';
+import { AuthService } from './auth.service';
 
 passport.use(
   new LocalStrategy(
     { usernameField: 'phone' },
     async (phone, password, done) => {
       try {
-        const user = await UserRepository.findOne({ where: { phone } });
+        const user = await AuthService.findUserWhere({ phone });
         if (!user) {
           return done(null, false, { message: 'Incorrect email or password' });
         }
@@ -34,7 +34,7 @@ passport.use(
     },
     async (jwtPayload, done) => {
       try {
-        const user = await UserRepository.findOneBy({ id: jwtPayload.id });
+        const user = await AuthService.findUserWhere({ id: jwtPayload.id });
         if (user) {
           return done(null, user);
         } else {
@@ -53,7 +53,7 @@ passport.serializeUser((user: any, done) => {
 
 passport.deserializeUser(async (id: number, done) => {
   try {
-    const user = await UserRepository.findOneBy({ id });
+    const user = await AuthService.findUserWhere({ id });
     done(null, user);
   } catch (err) {
     done(err);
