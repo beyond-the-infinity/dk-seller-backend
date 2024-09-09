@@ -8,12 +8,12 @@ export class ShopMember {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @ManyToOne(() => Shop, (shop) => shop.shopMembers)
+  @ManyToOne(() => Shop, (shop) => shop.members)
   shop!: Shop;
 
-  @ManyToOne(() => User, (user) => user.shopMembers)
+  @ManyToOne(() => User, (user) => user.shops)
   user!: User;
 
-  @ManyToOne(() => Role, (role) => role.shopMembers)
+  @ManyToOne(() => Role)
   role!: Role;
 }
