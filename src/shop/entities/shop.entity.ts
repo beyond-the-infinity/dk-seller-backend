@@ -11,5 +11,5 @@ export class Shop {
   owner!: User;
 
   @OneToMany(() => ShopMember, (shopMember) => shopMember.shop)
-  shopMembers!: ShopMember[];
+  members!: ShopMember[];
 }

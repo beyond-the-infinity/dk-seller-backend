@@ -1,5 +1,4 @@
-import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Permission } from './permission.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from './user.entity';
 
 @Entity('user_permissions')
@@ -10,6 +9,6 @@ export class UserPermission {
   @ManyToOne(() => User)
   user!: User;
 
-  @ManyToOne(() => Permission)
-  permission!: Permission;
+  @Column()
+  permission!: string;
 }
