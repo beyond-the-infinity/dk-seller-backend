@@ -1,7 +1,9 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { AppDataSource } from '../../data-source';
 import { RolePermission } from './role_permission.entity';
 
-@Entity('roles')
+export const ROLES = 'roles';
+@Entity(ROLES)
 export class Role {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -12,3 +14,5 @@ export class Role {
   @OneToMany(() => RolePermission, (rolePermission) => rolePermission.role)
   permissions!: RolePermission[];
 }
+
+export const RoleRepository = AppDataSource.getRepository(Role);

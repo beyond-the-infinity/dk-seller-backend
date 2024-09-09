@@ -1,8 +1,10 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { AppDataSource } from '../../data-source';
 import { Shop } from '../../shop/entities/shop.entity';
 import { UserPermission } from './user_premission.entity';
 
-@Entity('users')
+export const USERS = 'users';
+@Entity(USERS)
 export class User {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -19,3 +21,5 @@ export class User {
   @OneToMany(() => Shop, (shop) => shop.owner)
   shops!: Shop[];
 }
+
+export const UserRepository = AppDataSource.getRepository(User);

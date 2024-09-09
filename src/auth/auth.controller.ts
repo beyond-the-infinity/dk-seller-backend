@@ -2,7 +2,7 @@ import express from 'express';
 
 const router = express.Router();
 
-router.use('/login');
-router.use('/signup');
+router.post('/login');
+router.get('/signup');
 
 export const AuthController = router;
