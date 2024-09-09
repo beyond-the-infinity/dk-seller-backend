@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Shop } from '../../shop/entities/shop';
-import { ShopMember } from '../../shop/entities/shop_memebr';
-import { UserPermission } from './user_premission';
+import { Shop } from '../../shop/entities/shop.entity';
+import { ShopMember } from '../../shop/entities/shop_memebr.entity';
+import { UserPermission } from './user_premission.entity';
 
 @Entity('users')
 export class User {
