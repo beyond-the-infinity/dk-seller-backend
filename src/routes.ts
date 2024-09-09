@@ -4,4 +4,4 @@ const router = express.Router();
 
 router.use('/auth', AuthController);
 
-export const Controllers = router;
+export const AppController = router;

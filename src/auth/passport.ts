@@ -60,4 +60,4 @@ passport.deserializeUser(async (id: number, done) => {
   }
 });
 
-export default passport;
+export const AppPassport = passport;
