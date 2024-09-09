@@ -1,0 +1,43 @@
+services:
+  dev:
+    container_name: dk_seller_backend_dev
+    build: .
+    volumes:
+      - ..:/workspaces/dk_seller_backend:cached
+    networks:
+      - dk_seller_backend_dev_network
+    depends_on:
+      - db
+      - redis
+    ports:
+      - 3001:3001
+    env_file:
+      - ../.env
+
+  db:
+    container_name: dk_seller_backend_dev_database
+    image: docker.repos.balad.ir/postgres:16-alpine3.19
+    volumes:
+      - dk_seller_backend_dev_database_volume:/var/lib/postgresql/data
+    networks:
+      - dk_seller_backend_dev_network
+    env_file:
+      - ../.env
+
+  redis:
+    container_name: dk_seller_backend_dev_redis
+    image: docker.repos.balad.ir/redis:7-alpine3.19
+    volumes:
+      - dk_seller_backend_dev_redis_volume:/data
+    networks:
+      - dk_seller_backend_dev_network
+    env_file:
+      - ../.env
+
+volumes:
+  dk_seller_backend_dev_database_volume:
+  dk_seller_backend_dev_redis_volume:
+
+networks:
+  dk_seller_backend_dev_network:
+    driver: bridge
