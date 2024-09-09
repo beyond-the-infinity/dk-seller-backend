@@ -14,6 +14,6 @@ export class ShopMember {
   @ManyToOne(() => User, (user) => user.shops)
   user!: User;
 
-  @ManyToOne(() => Role, (role) => role.shopMembers)
+  @ManyToOne(() => Role)
   role!: Role;
 }
