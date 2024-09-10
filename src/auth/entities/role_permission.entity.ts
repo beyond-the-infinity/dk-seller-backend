@@ -1,5 +1,4 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { AppDataSource } from '../../data-source';
 import { Role } from './role.entity';
 
 export const ROLE_PERMISSIONS = 'role_permissions';
@@ -14,6 +13,3 @@ export class RolePermission {
   @Column()
   permission: string;
 }
-
-export const RolePermissionRepository =
-  AppDataSource.getRepository(RolePermission);

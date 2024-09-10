@@ -1,7 +1,6 @@
 import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Role } from '../../auth/entities/role.entity';
 import { User } from '../../auth/entities/user.entity';
-import { AppDataSource } from '../../data-source';
 import { Shop } from './shop.entity';
 
 export const SHOP_MEMBERS = 'shop_members';
@@ -19,5 +18,3 @@ export class ShopMember {
   @ManyToOne(() => Role)
   role: Role;
 }
-
-export const ShopMemberRepository = AppDataSource.getRepository(ShopMember);

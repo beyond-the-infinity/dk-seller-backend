@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import session from 'express-session';
 import 'reflect-metadata';
 import { AppPassport } from './auth/passport';
+import configuration from './configs/configuration';
 import { AppController } from './routes';
 
 export function createApplication(): Express {
@@ -14,7 +15,7 @@ export function createApplication(): Express {
   // Session setup (for local strategy)
   app.use(
     session({
-      secret: 'your_secret_key',
+      secret: configuration.jwtSecret,
       resave: false,
       saveUninitialized: false,
     }),

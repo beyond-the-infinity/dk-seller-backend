@@ -1,6 +1,5 @@
 import { Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../../auth/entities/user.entity';
-import { AppDataSource } from '../../data-source';
 import { ShopMember } from './shop_memebr.entity';
 
 export const SHOPS = 'shops';
@@ -15,5 +14,3 @@ export class Shop {
   @OneToMany(() => ShopMember, (shopMember) => shopMember.shop)
   members: ShopMember[];
 }
-
-export const ShopRepository = AppDataSource.getRepository(Shop);

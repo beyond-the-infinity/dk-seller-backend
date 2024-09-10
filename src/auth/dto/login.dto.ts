@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsPhoneNumber, MinLength } from "class-validator";
+import { IsNotEmpty, IsPhoneNumber, MinLength } from 'class-validator';
 
 export class LoginDto {
   @IsNotEmpty()
@@ -8,4 +8,9 @@ export class LoginDto {
   @IsNotEmpty()
   @MinLength(8)
   password: string;
+}
+
+export class LoginResponseDto {
+  message: string;
+  token: any;
 }

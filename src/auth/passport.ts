@@ -5,6 +5,9 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import configuration from '../configs/configuration';
 import { AuthService } from './auth.service';
 
+export const LOCAL_STRATEGY = 'local';
+export const JWT_STRATEGY = 'jwt';
+
 passport.use(
   new LocalStrategy(
     { usernameField: 'phone' },
