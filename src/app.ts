@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import session from 'express-session';
+import 'reflect-metadata';
 import { AppPassport } from './auth/passport';
 import { AppController } from './routes';
 
