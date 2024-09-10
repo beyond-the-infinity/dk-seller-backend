@@ -7,19 +7,19 @@ export const USERS = 'users';
 @Entity(USERS)
 export class User {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  phone!: string;
+  phone: string;
 
   @Column()
-  password!: string;
+  password: string;
 
   @OneToMany(() => UserPermission, (userPermission) => userPermission.user)
-  permissions!: UserPermission[];
+  permissions: UserPermission[];
 
   @OneToMany(() => Shop, (shop) => shop.owner)
-  shops!: Shop[];
+  shops: Shop[];
 }
 
 export const UserRepository = AppDataSource.getRepository(User);

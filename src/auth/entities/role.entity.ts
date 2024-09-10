@@ -6,13 +6,13 @@ export const ROLES = 'roles';
 @Entity(ROLES)
 export class Role {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  name!: string;
+  name: string;
 
   @OneToMany(() => RolePermission, (rolePermission) => rolePermission.role)
-  permissions!: RolePermission[];
+  permissions: RolePermission[];
 }
 
 export const RoleRepository = AppDataSource.getRepository(Role);

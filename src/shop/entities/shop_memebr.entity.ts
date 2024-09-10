@@ -8,16 +8,16 @@ export const SHOP_MEMBERS = 'shop_members';
 @Entity(SHOP_MEMBERS)
 export class ShopMember {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @ManyToOne(() => Shop, (shop) => shop.members)
-  shop!: Shop;
+  shop: Shop;
 
   @ManyToOne(() => User, (user) => user.shops)
-  user!: User;
+  user: User;
 
   @ManyToOne(() => Role)
-  role!: Role;
+  role: Role;
 }
 
 export const ShopMemberRepository = AppDataSource.getRepository(ShopMember);

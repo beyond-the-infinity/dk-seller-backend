@@ -6,13 +6,13 @@ export const USER_PERMISSIONS = 'user_permissions';
 @Entity(USER_PERMISSIONS)
 export class UserPermission {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @ManyToOne(() => User)
-  user!: User;
+  user: User;
 
   @Column()
-  permission!: string;
+  permission: string;
 }
 
 export const UserPermissionRepository =

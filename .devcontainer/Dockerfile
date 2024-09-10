@@ -12,6 +12,6 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 # Switch back to non-root user
 USER node
 
-WORKDIR /workspaces/admin
+WORKDIR /workspaces/dk_seller_backend
 
 ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]

@@ -1,4 +1,6 @@
 import { FindOneOptions, FindOptionsWhere } from 'typeorm';
+import { LoginDto } from './dto/login.dto';
+import { RegisterDto } from './dto/register.dto';
 import { User, UserRepository } from './entities/user.entity';
 
 class AuthServiceClass {
@@ -10,6 +12,14 @@ class AuthServiceClass {
 
   async findUserWhere(options: FindOptionsWhere<User>) {
     return await UserRepository.findOneBy(options);
+  }
+
+  async register(data: RegisterDto) {
+
+  }
+
+  async login(data: LoginDto) {
+
   }
 }
 

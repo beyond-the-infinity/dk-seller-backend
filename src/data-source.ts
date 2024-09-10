@@ -1,4 +1,4 @@
-import { DataSource } from 'typeorm';
+import { DataSource, EntityManager } from 'typeorm';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -13,3 +13,5 @@ export const AppDataSource = new DataSource({
   subscribers: [],
   migrations: [],
 });
+
+export const AppEntityManager = new EntityManager(AppDataSource);

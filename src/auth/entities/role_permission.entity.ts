@@ -6,13 +6,13 @@ export const ROLE_PERMISSIONS = 'role_permissions';
 @Entity(ROLE_PERMISSIONS)
 export class RolePermission {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @ManyToOne(() => Role, (role) => role.permissions)
-  role!: Role;
+  role: Role;
 
   @Column()
-  permission!: string;
+  permission: string;
 }
 
 export const RolePermissionRepository =

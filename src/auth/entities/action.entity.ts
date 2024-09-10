@@ -5,10 +5,10 @@ export const ACTIONS = 'actions';
 @Entity(ACTIONS)
 export class Action {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  action!: string;
+  action: string;
 }
 
 export const ActionRepository = AppDataSource.getRepository(Action);
